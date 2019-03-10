@@ -1,0 +1,5 @@
+#deb cdrom:[BackBox Linux 5.2 - Release amd64]/ xenial main multiverse restricted universe
+#deb http://archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
+#deb http://security.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
+#deb http://archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse
+
