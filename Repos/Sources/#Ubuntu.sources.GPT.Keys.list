@@ -1,0 +1,40 @@
+GPG Keys
+
+Direct Link to GPG Key List or use:
+curl https://repogen.simplylinux.ch/txt/bionic/gpg_80b7a342f82c4674ba5434fc02e5a5fd4559233a.txt | sudo tee /etc/apt/gpg_keys.txt
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C6DAEA80
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7A51D6F2
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 614C4B38
+wget -q https://dl.google.com/linux/linux_signing_key.pub -O- | sudo apt-key add -
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93330B78
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8AC93F7A
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1378B444
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys  247510BE
+sudo wget -O - http://apt.mucommander.com/apt.key | sudo apt-key add - 
+wget -q http://liveusb.info/multisystem/depot/multisystem.asc -O- | sudo apt-key add -
+sudo wget -O - http://deb.opera.com/archive.key | sudo apt-key add -
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4BB9F05F
+wget -O - http://www.bchemnet.com/suldr/suldr.gpg | sudo apt-key add -
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F24AEA9FB05498B7
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 886DDD89
+wget http://www.webmin.com/jcameron-key.asc -O- | sudo apt-key add -
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8844C542  
+
+Alternate layout for synaptic
+
+Direct Link to Synaptic Sources List or use:
+
+WARNING: This will overwrite your existing sources.list:
+
+    curl https://repogen.simplylinux.ch/txt/bionic/synaptic_80b7a342f82c4674ba5434fc02e5a5fd4559233a.txt | sudo tee /etc/apt/sources.list
+
+
+
+
+
