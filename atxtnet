@@ -1,0 +1,1 @@
+links  -proxy socks://127.0.0.1:9050 https://check.torproject.org

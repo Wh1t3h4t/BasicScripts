@@ -1,0 +1,11 @@
+sudo ifconfig eth0 down
+sudo ifconfig wlan0 down
+sudo ifconfig lo down
+sudo hostname OpLastResort
+sudo macchanger -r --bia eth0
+sudo macchanger -r --bia wlan0
+sudo macchanger -r --bia lo
+ifconfig eth0 up
+sudo ifconfig eth0 up
+sudo ifconfig wlan0 up
+wicd-gtk

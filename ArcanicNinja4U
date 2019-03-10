@@ -1,0 +1,10 @@
+sudo ifconfig enp4s0 down
+sudo Ifconfig wlp3s0 down
+sudo ifconfig lol down
+sudo hostname NO1
+sudo macchanger -r  --bia enp4s0
+sudo macchanger -r  --bia  wlp3s0
+sudo macchanger  -r --bia lo
+sudo ifconfig enp4s0 up
+sudo ifconfig  wlp3s0 up
+sudo ifconfig lo up

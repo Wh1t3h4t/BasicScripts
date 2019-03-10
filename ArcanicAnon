@@ -1,0 +1,80 @@
+       #               Stopping Running Services
+       #                        *1/3*  
+       # Killing tor #
+sudo killall tor
+#        Prosses Terminated! 
+#            2/3
+      .## Killing Proxychains ##
+sudo killall proxychains
+##         Proxychains..
+#        *Done!- Prosses Terminated*
+##          proxychains4...
+sudo killall proxychains4
+#       *Done!- Prosses Terminated*
+#                   *3/3*
+###       Killing Network-Manager
+sudo killall wicd
+###     *Done!-Prosses Wicd Terminated*
+echo     *Done!- Network-Manager Offline*
+#               FARADAY CAGE! 
+#                  *1/3*
+#        Cutting Ethernet Interface #
+sudo sudo ifconfig eth0 down
+       # Done - Eth0 Disabled #
+       Echo Done!- Eth0 Disabled
+##       Cutting Wireless Interface ##
+#                  *2/3*         
+sudo ifconfig wlan0 down
+#           Done - Wlan0 Down
+echo   Done!- Wireless Interface Disabled
+ ###         Cutting Local Loopback Interface
+ #                       *3/3*
+ sudo ifconfig lo down
+ ###              Done - Lo Disabled
+        Echo Done! Local Loopback port Disabled
+#            *Spoofing Hostname For AnonOps*
+sudo hostname OpFreeNet
+#           *Done!-Hostname set: OpFreeNet*
+#           *Randomize  Wired Mac
+#                    *1/3*
+sudo macchanger -r --bia eth0
+#           Done Spoofing Eth0
+echo.        *Done Spoofing Eth0 !*
+##         *Randomize Wireless Mac*
+#                     *2/3*
+sudo macchanger -r --bia wlan0
+#           *Done Spoofing Wlan0 !*
+###       *Randomize Local-Loopback Mac*
+#                       *3/3*
+sudo macchanger -r --bia lo
+#            *Done Spoofing Lo*
+#        ***RESTOREING CONNECTION***
+#         *ENABLE WIRED INTERFACE*
+#                     1/3
+sudo ifconfig eth0 up
+#          *Done!- Eth0 ACTIVE*
+echo      *Done!- Eth0 ACTIVE*
+##      *ENABLE WIRELESS INTERFACE*
+#               *2/3*
+sudo ifconfig wlan0 up
+#          *Done! -Wlan0 ACTIVE*
+echo.      *Done!-Wlan0 ACTIVE*
+#       *ENABLE LOOPBACK INTERFACE*
+#                  *3/3*
+#         *Done! - Lo ACTIVE*
+echo.     *Done!-  Lo Active*
+#        *Current Network Status:*
+sudo ifconfig -s
+#        *MAC CONFIRM WIRED*
+#                  *1/3*
+sudo macchanger eth0
+##         *MAC CONFIRM WIRELESS*
+#                   *2/3* ,
+sudo macchanger wlan0
+###          *MAC CONFIRM LO*
+#                   *3/3*
+sudo macchanger lo
+       #*Spoof MonMode*#
+sudo macchanger -r --bia wlan0mon
+#        *ACTIVATE NET PRIVACY*
+sudo --user anonymous tor

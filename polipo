@@ -1,0 +1,85 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          polipo
+# Required-Start:    $remote_fs
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start or stop the polipo web cache
+# Description:       This script controls caching web proxy.
+#                    It is called from the boot, halt and reboot scripts.
+### END INIT INFO
+#
+# Author:	Tom Ellis Huckstep <tom-debian-polipo@jaguarpaw.co.uk>
+
+set -e
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+PPCTL=/usr/lib/polipo/polipo-control
+test -x $PPCTL  || exit 0
+
+NAME=polipo
+DESC=polipo
+
+. /lib/lsb/init-functions
+
+# Include polipo defaults if available
+#if [ -f /etc/default/polipo ] ; then
+#	. /etc/default/polipo
+#fi
+
+# Make sure /var/run/polipo exists.
+if [ ! -e /var/run/$NAME ] ; then
+	mkdir -p /var/run/$NAME
+	chown proxy:proxy /var/run/$NAME
+	chmod 755 /var/run/$NAME
+fi
+
+case "$1" in
+  start)
+	echo -n "Starting $DESC: "
+        $PPCTL start
+	echo "$NAME."
+	;;
+  stop)
+	echo -n "Stopping $DESC: "
+        $PPCTL stop
+	echo "$NAME."
+	;;
+  status)
+	status_of_proc /usr/bin/$NAME $NAME
+	;;
+  #reload)
+	#
+	#	If the daemon can reload its config files on the fly
+	#	for example by sending it SIGHUP, do it here.
+	#
+	#	If the daemon responds to changes in its config file
+	#	directly anyway, make this a do-nothing entry.
+	#
+	# echo "Reloading $DESC configuration files."
+	# start-stop-daemon --stop --signal 1 --quiet --pidfile \
+	#	/var/run/$NAME.pid --exec $DAEMON
+  #;;
+  restart|force-reload)
+	#
+	#	If the "reload" option is implemented, move the "force-reload"
+	#	option to the "reload" entry above. If not, "force-reload" is
+	#	just the same as "restart".
+	#
+	echo -n "Restarting $DESC: "
+        $PPCTL stop
+	sleep 1
+        $PPCTL start
+	echo "$NAME."
+	;;
+  *)
+	N=/etc/init.d/$NAME
+	# echo "Usage: $N {start|stop|restart|reload|force-reload}" >&2
+	echo "Usage: $N {start|stop|restart|force-reload}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

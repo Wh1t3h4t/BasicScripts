@@ -1,0 +1,4 @@
+sudo ifconfig wlp3s0non down
+sudo macchanger -r  --bia wlp3s0mon
+sudo ifconfig wlp3s0mon up
+sudo wifite

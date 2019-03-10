@@ -1,0 +1,18 @@
+sudo killall wicd
+sudo ifconfig eth0 down && sudo ifconfig wlan0 down && sudo ifconfig lo down && sudo hostname Arcana && sudo macchanger -p eth0 && sudo macchanger -p wlan0 && sudo macchanger -p lo && sudo ifconfig eth0 up && sudo ifconfig wlan0mon up && sudo ifconfig lo up && wicd-gtk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
